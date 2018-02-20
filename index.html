@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Portfolio Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="main.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            max-width: 100%;
+        }
+
+        .landing {
+            background: black;
+            height: 797px;
+            width:  100%;
+            z-index: -1;
+        }
+
+        .hamburger {
+            display: hidden;
+        }
+
+        .navbar { 
+            display: flex;
+            height: 100px;
+            justify-content: space-between;
+            padding: 0 160px;
+        }
+
+        .home-link {
+            display: flex;
+            align-items: center;
+            font-family: "Mistral Regular";
+            font-size: 32px;
+            color: rgba(255, 255, 0, 0.726);
+        }
+
+        .links {
+            display: flex;
+            align-items: center;
+            font-family: "Century Gothic";
+            color: white;
+            transition: 100ms;
+        }
+
+        .link-to {
+            margin: 20px;
+        }
+
+        .link-to:hover {
+            color: rgba(255, 255, 0, 0.726);
+            cursor: pointer;
+        }
+
+        .title {
+            /* background: blue; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 200px 0;
+            font-family: "Berlin Sans FB";
+            color: white;
+        }
+
+        .welcome {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .nice-to {
+            font-size: 48px;
+        }
+
+        .button-learn {
+            background: rgba(255, 255, 0, 0.726);
+            width: 200px;
+            height: 50px;
+            border: none;
+            border-radius: 15px;
+            font-family: "Berlin Sans FB";
+            font-size: 16px;
+            color: white;
+        }
+
+        .services {
+            background: gray;
+            height: 797px;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .services-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 24px;
+        }
+
+        .items-container {
+            /* background: rgba(255, 255, 0, 0.726); */
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .circle {
+            background: rgba(255, 255, 0, 0.726);
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+        }
+
+        .service-items {
+            /* background: red; */
+            width: 270px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .portfolio-container {
+            background: blue;
+            /* height: 797px; */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portfolio-title {
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+            text-align: center;
+        }
+
+        .portfolio-items {
+            /* background: red; */
+            width: 90vw;
+            display: flex;
+            align-items: center;
+            flex-flow: wrap row;
+        }
+
+        .item-container {
+            /* background: white; */
+            width: 450px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 28px;
+        }
+
+        .image-items {
+            background: green;
+            width: 250px;
+            height: 250px;
+        }
+
+        .about {
+            background: pink;
+            width: 100%;
+            /* height: 797px; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-title {
+            color: red;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .about-items {
+            /* background: salmon; */
+            display: flex;
+            flex-flow: wrap column;
+            align-items: center;
+        }
+
+        .filler {
+            /* background: black; */
+            width: 300px;
+            height: 300px;
+            align-self: flex-end;
+        }
+
+        .about-item-right {
+            text-align: right;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-item-left {
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-item-text {
+            color: blue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 300px;   
+        }
+
+        .team {
+            background: chartreuse;
+            width: 100%;
+            height: 797px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .team-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .team-items {
+            background: firebrick;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .team-logo {
+            background: deeppink;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .twitter {
+            background: lightblue;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+        }
+
+        .facebook {
+            background: steelblue;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+        }
+
+        .linkedin {
+            background: darkblue;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .contact {
+            background: chocolate;
+            width: 100%;
+            height: 797px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        .your-message {
+            background: blueviolet;
+            width: 75%;
+            height: 50%;
+            display: flex;
+            margin: 20px;
+        }
+
+        .personal {
+            background: burlywood;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .footer {
+            background: black;
+            display: flex;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+        }
+
+        .copyright {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif';
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page">
+    <div class="landing">
+        <div class="navbar">
+            <div class="hamburger"></div>
+            <div class="home-link">
+                Start Bootstrap
+            </div>
+            <div class="social-media">
+                <a class="link-to">Services</a>
+                <a class="link-to">Portfolio</a>
+                <a class="link-to">About</a>
+                <a class="link-to">Team</a>
+                <a class="link-to">Contact</a>
+            </div>
+        </div>
+        <div class="title">
+            <h3 class="welcome">
+                Welcome To Our Studio!
+            </h3>
+            <h1 class="nice-to">
+                IT'S NICE TO MEET YOU
+            </h1>
+            <button
+                class="button-learn"
+                >TELL ME MORE
+            </button>
+        </div>
+    </div>
+
+    <div class="services">
+        <div class="services-title">
+            <h1>
+                SERVICES
+            </h1>
+            <p class="description">
+                Lorem ipsum dolor sit amet consectetur.
+            </p>
+        </div>
+        <div class="items-container">
+            <div class="service-items">
+                <div class="circle"></div>
+                <h1>E-Commerce</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
+                </p>
+            </div>
+            <div class="service-items">
+                <div class="circle"></div>
+                <h1>Responsive Design</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
+                </p>
+            </div>
+            <div class="service-items">
+                <div class="circle"></div>
+                <h1>Web Security</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-container">
+        <div class="portfolio-title">
+            <h1>
+                PORTFOLIO
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="portfolio-items">
+            <div class="item-container">
+                <div class="image-items"></div>
+                <h2>Threads</h2>
+                <p>Illustration</p>
+            </div>
+            <div class="item-container">
+                <div class="image-items"></div>
+                <h2>Explore</h2>
+                <p>Graphic Design</p>
+            </div>
+            <div class="item-container">
+                <div class="image-items"></div>
+                <h2>Finish</h2>
+                <p>Identity</p>
+            </div>
+            <div class="item-container">
+                <div class="image-items"></div>
+                <h2>Lines</h2>
+                <p>Branding</p>
+            </div>
+            <div class="item-container">
+                <div class="image-items"></div>
+                <h2>Southwest</h2>
+                <p>Website Design</p>
+            </div>    
+            <div class="item-container">
+                <div class="image-items"></div>
+                <h2>Window</h2>
+                <p>Photography</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="about">
+        <div class="about-title">
+            <h1>ABOUT</h1>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="about-items">
+            <div class="about-item-right">
+                <div class="about-item-text">
+                    <h3>2009-2011</h3>
+                    <h2>Our Humble Beginnings</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+                <div class="circle"></div>
+                <div class="filler"></div>
+            </div>
+            <div class="about-item-left">
+                <div class="filler"></div>
+                <div class="circle"></div>
+                <div class="about-item-text">
+                    <h3>March 2011</h3>
+                    <h2>An Agency is Born</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+            </div>
+            <div class="about-item-right">
+                <div class="about-item-text">
+                    <h3>December 2012</h3>
+                    <h2>Transition to Full Service</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+                <div class="circle"></div>
+                <div class="filler"></div>
+            </div>
+            <div class="about-item-left">
+                    <div class="filler"></div>
+                    <div class="circle"></div>
+                    <div class="about-item-text">
+                    <h3>July 2014</h3>
+                    <h2>Phase Two Expansion</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+            </div>
+            <div class="circle">
+                <h5>Be Part Of Our Story!</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="team">
+        <div class="team-title">
+            <h1>OUR AMAZING TEAM</h1>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="team-items">
+            <div class="item">
+                <div class="team-logo"></div>
+                <h2>Kay Garland</h2>
+                <p>Lead Designer</p>
+                <div class="social-media">
+                    <div class="twitter"></div>
+                    <div class="facebook"></div>
+                    <div class="linkedin"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="team-logo"></div>
+                <h2>Larry Parker</h2>
+                <p>Lead Marketer</p>
+                <div class="social-media">
+                    <div class="twitter"></div>
+                    <div class="facebook"></div>
+                    <div class="linkedin"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="team-logo"></div>
+                <h2>Diana Perterson</h2>
+                <p>Lead Developer</p>
+                <div class="social-media">
+                    <div class="twitter"></div>
+                    <div class="facebook"></div>
+                    <div class="linkedin"></div>
+                </div>
+            </div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+    </div>
+
+    <div class="contact">
+        <div class="contact-title">
+            <h1>CONTACT US</h1>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="your-message">
+            <div class="personal">
+                <input type="text" placeholder="Your Name*">
+                <input type="email" placeholder="Your Email*">
+                <input type="number" placeholder="Your Phone*">
+            </div>
+            <textarea cols="75" rows="10" placeholder="Message*"></textarea>
+        </div>
+        <button>SEND MESSAGE</button>
+    </div>
+
+    <div class="footer">
+        <p class="copyright">Copyright @ Meowth Inc.</p>
+        <div class="footer-social">
+            <div class="twitter"></div>
+            <div class="facebook"></div>
+            <div class="linkedin"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
